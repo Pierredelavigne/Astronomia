@@ -1,0 +1,4 @@
+w = wall
+W = water
+G = grass
+D = dirt
