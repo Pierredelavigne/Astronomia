@@ -4,13 +4,15 @@
 ** File description:
 ** character of the string
 */
-#include <unistd.h>
+#include <stdio.h>
 
-void my_putchar(char c);
+// Declaration of my_strlen if it's not in a common header from this lib
+// int my_strlen(const char *str);
+// It is declared in "my.h" which is likely included by files using my_putstr
 
-int my_strlen(const char *str);
-
-int  my_putstr(char const *str)
+void my_putstr(char const *str) // Changed return type to void to match common practice
 {
-    write(1, str, my_strlen(str));
+    if (str) { // Added a null check
+        fputs(str, stdout);
+    }
 }

@@ -4,20 +4,16 @@
 ** File description:
 ** Write in error
 */
-#include <unistd.h>
+#include <stdio.h>
 
-void my_putchar_error(char c)
+// my_putchar_error is not standard, replacing its usage directly.
+// If my_putchar_error was intended to be a public function of the lib,
+// it should be declared in a header and its definition kept.
+// For now, making my_putstr_error self-contained with stdio.
+
+void my_putstr_error(char const *str) // Changed return type to void
 {
-    write(2, &c, 1);
-}
-
-int  my_putstr_error(char const *str)
-{
-    int i;
-
-    i = 0;
-    while (str[i] != '\0') {
-        my_putchar_error(str[i]);
-        i++;
+    if (str) { // Added a null check
+        fputs(str, stderr);
     }
 }
