@@ -7,7 +7,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
+// #include <unistd.h> // Removed as core lib functions no longer directly depend on it for write/read etc.
+// getline (used in map loading) is expected to be provided by stdio.h with MinGW/_GNU_SOURCE.
 
 #ifndef MY_H_
 #define MY_H_
